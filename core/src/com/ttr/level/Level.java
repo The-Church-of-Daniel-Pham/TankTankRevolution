@@ -22,6 +22,11 @@ public class Level extends Stage {
 	public Map map;
 	public LevelCamera camera;
 
+	/**
+	 * Creates a new level of width number of tiles and height number of tiles
+	 * @param width the width in tiles
+	 * @param height the height in tiles
+	 */
 	public Level(int width, int height) {
 		super(new FitViewport(Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT));
 		this.width = width;

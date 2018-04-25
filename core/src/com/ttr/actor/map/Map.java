@@ -18,6 +18,12 @@ public class Map extends Group {
 	public MapTile[][] map;
 	public Level level;
 
+	/**
+	 * Creates a new randomly generated map of size width tiles and height tiles
+	 * @param width width of Map
+	 * @param height height of Map
+	 * @param level the Level to which the Map belongs
+	 */
 	public Map(int width, int height, Level level) {
 		this.level = level;
 		MazeMaker mazeGen = new MazeMaker(width, height);
@@ -39,15 +45,28 @@ public class Map extends Group {
 			}
 		}
 	}
-	
+	/**
+	 * 
+	 * @return the width, in pixels
+	 */
 	public int getSizeX() {
 		return layout[0].length * MapTile.SIZE;
 	}
-	
+	/**
+	 * 
+	 * @return the height, in pixels
+	 */
 	public int getSizeY() {
 		return layout.length * MapTile.SIZE;
 	}
 	
+	/**
+	 * 
+	 * @param x the x position in pixels
+	 * @param y the y position in pixels
+	 * @return an integer array of size 2 
+	 * {row, col} that represents the tile the given pixel coordinates lie on
+	 */
 	public int[] getTileAt(float x, float y) {
 		// due to rounding down with int tankMapRow = (int)((40*128-super.getY())/128),
 		// which "rounds back up" when converting back to world coords
@@ -56,10 +75,23 @@ public class Map extends Group {
 		return new int[] {mapRow, mapCol};
 	}
 	
+	/**
+	 * 
+	 * @param x the x position in pixels
+	 * @param y the y position in pixels
+	 * @return returns true if the given coordinates in inside the Map,
+	 * otherwise returns false
+	 */
 	public boolean inMap(float x, float y) {
 		return x > 0 && x < getSizeX() && y > 0 && y < getSizeY();
 	}
 	
+	/**
+	 * 
+	 * @param a tile's row
+	 * @param a tile's column
+	 * @return an ArrayList of MapTiles of all bricks within two tiles of the given tile
+	 */
 	public ArrayList<MapTile> getBrickNeighbors(int row, int col) {
 		ArrayList<MapTile> brickNeighbors = new ArrayList<MapTile>();
 		for (int yOffset = -2; yOffset <= 2; yOffset++) {
@@ -81,6 +113,11 @@ public class Map extends Group {
 		return brickNeighbors;
 	}
 	
+	/**
+	 * 
+	 * @param tiles an ArrayList of MapTiles
+	 * @return an ArrayList of Polygons, each of which represents a tile
+	 */
 	public ArrayList<Polygon> getHitboxes(ArrayList<MapTile> tiles) {
 		ArrayList<Polygon> hitboxes = new ArrayList<Polygon>();
 		for (MapTile tile : tiles) {
@@ -90,7 +127,13 @@ public class Map extends Group {
 		return hitboxes;
 	}
 
-	@Override
+	
+	/**
+	 * Precondition: batch.begin() has been called
+	 * @Override
+	 * @param batch the current batch for drawing sprites
+	 * @param alpha transparency [0,1]
+	 */
 	public void draw(Batch batch, float alpha) {
 		for (Actor tile : super.getChildren()) {
 				tile.draw(batch, alpha);
