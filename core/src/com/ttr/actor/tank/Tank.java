@@ -42,10 +42,12 @@ public class Tank extends DynamicCollider implements InputProcessor {
 		super.setLevel(level);
 
 		tread = new Sprite(Assets.manager.get(Assets.tread));
-		tread.setOriginCenter(); // set pivot of tread to center
+		//tread.setOriginCenter(); // set pivot of tread to center
+		tread.setOrigin(117f,128f);
 		gun = new Sprite(Assets.manager.get(Assets.gun_0)); // set pivot of gun to 100 pixels along width (scaled from
 															// 256 total), half of height
-		gun.setOrigin(Tank.SIZE / 2f - gunOriginOffset, Tank.SIZE / 2f);
+		//gun.setOrigin(Tank.SIZE / 2f - gunOriginOffset, Tank.SIZE / 2f);
+		gun.setOrigin(105,128);
 		
 		brickHitboxes = new ArrayList<Polygon>();
 		collidesAt(0, 0, 0); // fills the instance arrays so that the hitboxes' vertices can render properly
@@ -132,8 +134,7 @@ public class Tank extends DynamicCollider implements InputProcessor {
 			// debug
 			// if you can find a more elegant way to find these constants, be my guest
 			if (reloadTime <= 0) {
-				getStage().addActor(new Bullet((float) (gun.getX() + 64 + 180 * Math.cos(gunOrientation)),
-						(float) (gun.getY() + 96 + 180 * Math.sin(gunOrientation)), gunOrientation, super.getLevel()));
+				getStage().addActor(new Bullet((float)(super.getX() + 100 * Math.cos(gunOrientation)), (float)(super.getY() +100 * Math.sin(gunOrientation)), gunOrientation, super.getLevel()));
 				reloadTime += 1 / Tank.RATE_OF_FIRE;
 			}
 			// System.out.println(reloadTime);
