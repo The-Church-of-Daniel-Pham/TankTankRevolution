@@ -2,6 +2,8 @@
 
 APCS Final Project
 
+THIS IS NOT OUR PROJECT, THIS IS JUST RESEARCH.
+
 ## Authors
 
 * [Samuel Hunter](https://github.com/SamuelHunter)
