@@ -2,7 +2,7 @@
 
 APCS Final Project
 
-THIS IS NOT OUR PROJECT, THIS IS JUST RESEARCH.
+Our project branch is empty, click [here](https://github.com/The-Church-of-Daniel-Pham/TankTankRevolution/tree/research) to go to the research branch.
 
 ## Authors
 
