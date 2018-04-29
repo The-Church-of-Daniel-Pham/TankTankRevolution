@@ -5,8 +5,8 @@ APCS Final Project
 Our main branch is, of course, empty.
 
 Branches:
-* [Research](https://github.com/The-Church-of-Daniel-Pham/TankTankRevolution/tree/research)
-* [Research-Android]
+* [research](https://github.com/The-Church-of-Daniel-Pham/TankTankRevolution/tree/research)
+* [research-android](https://github.com/The-Church-of-Daniel-Pham/TankTankRevolution/tree/research-android)
 
 ## Authors
 
