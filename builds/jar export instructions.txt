@@ -1,4 +1,0 @@
-In \TankTankRevolution
-Shift + Right Click -> Open PowerShell window here
-.\gradlew desktop:dist
-Jar is at \TankTankRevolution\desktop\build\libs
