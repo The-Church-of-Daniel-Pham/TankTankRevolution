@@ -1,5 +1,7 @@
 # Tank Infinity
 
+APCS Final Project
+
 ## Authors
 
 * [Samuel Hunter](https://github.com/SamuelHunter)
